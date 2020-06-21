@@ -8,7 +8,11 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     </head>
     <body style="margin-left:35px; margin-right:20px;">
-        <h3 class="text-center">Mis actividades</h3>
+        <br><br>
+        <div class=row>
+            <h3 class="col-10 display-4 text-left">Mis actividades</h3>
+            <img class="col text-right" src="../imgs/header.gif" alt="logo" width="100" height="80" >
+        </div>
         <br><br><br>
         <div class=row>
             <div class=col-10>
@@ -16,12 +20,12 @@
                     <button style=margin:15px; class="btn btn-primary"  type="button" data-toggle="modal" data-target="#modalAgregarAct">Nueva actividad</button>
                     <button style=margin:15px; class="btn btn-dark" type="button" data-toggle="modal" data-target="#modalVerAct">Ver actividad</button>
                     <button style=margin:15px; class="btn btn-success" type="button" data-toggle="modal" data-target="#modalEditarAct">Editar actividad</button>
-                    <button style=margin:15px; class="btn btn-danger" type="button" onclick="window.location='./login.php';">Eliminar actividad</button>
+                    <button style=margin:15px; class="btn btn-danger" type="button" onclick="confirmarEliminar();">Eliminar actividad</button>
                 </div>
             </div>
             <div class=col-2>
                 <form action="./login.php" method="get">
-                    <button class="btn btn-secondary" type=submit onclick=cerrarSesion()>Salir</button>    
+                    <button class="btn btn-secondary" type=submit>Salir</button>    
                 </form>   
             </div>
         </div>
@@ -29,11 +33,24 @@
         <br><br>
         <div class="row">
             <div class="col-6 text-center">
-                <h3>ACTIVIDADES PENDIENTES</h3>
-
+                <h3 style=color:blue;>ACTIVIDADES PENDIENTES</h3>
+                <br>
+                <ul class="list-group text-left">
+                    <li class="list-group-item-action list-group-item list-group-item-primary">TAREA 1</li>
+                    <li class="list-group-item-action list-group-item list-group-item-primary">TAREA 2</li>
+                    <li class="list-group-item-action list-group-item list-group-item-primary">TAREA X</li>
+                    <li class="list-group-item-action list-group-item list-group-item-primary">TAREA Y</li>
+                </ul>
             </div>
             <div class="col-6 text-center">
-                <h3>ACTIVIDADES FINALIZADAS</h3>
+                <h3 style=color:green;>ACTIVIDADES FINALIZADAS</h3>
+                <br>
+                <ul class="list-group text-left">
+                    <li class="list-group-item-action list-group-item list-group-item-success">TAREA 3</li>
+                    <li class="list-group-item-action list-group-item list-group-item-success">TAREA 4</li>
+                    <li class="list-group-item-action list-group-item list-group-item-success">TAREA A</li>
+                    <li class="list-group-item-action list-group-item list-group-item-success">TAREA B</li>
+                </ul>
             </div>
         </div>
 
@@ -97,7 +114,17 @@
                                 <label for="descripcion">Descripción de la actividad:</label>
                                 <textarea type="text" class="mr-sm-2 " placeholder="" id="descripcion" required></textarea>
                             </div>
-                            <div class="btn-group float-right" role="group">
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="rdFinish" value="terminada" checked>
+                                    <label class="form-check-label" for="rdFinish">Terminada</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="rdPendiente" value="pendiente">
+                                    <label class="form-check-label" for="rdPendiente">Pendiente</label>
+                                </div>
+                            </div>
+                            <div class=float-right>
                                 <button style="margin-left:10px; margin-right:15px;" class="btn btn-primary border rounded border-dark" type="submit" id="btnGuardarNuevo">Guardar</button>
                             </div>
                         </div>
@@ -130,6 +157,16 @@
                             <div class="form-group">
                                 <label for="descripcion">Descripción de la actividad:</label>
                                 <textarea disabled type="text" class="mr-sm-2 " placeholder="" id="descripcion" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input disabled class="form-check-input" type="radio" name="exampleRadios" id="rdFinish" value="terminada" checked>
+                                    <label class="form-check-label" for="rdFinish">Terminada</label>
+                                </div>
+                                <div class="form-check">
+                                    <input disabled class="form-check-input" type="radio" name="exampleRadios" id="rdPendiente" value="pendiente">
+                                    <label class="form-check-label" for="rdPendiente">Pendiente</label>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -9,7 +9,10 @@
    </head>
     <body style="margin:50px;">
 
-        <h4 class="text-center">Administración de usuarios</h4>
+        <div class=row>
+            <h3 class="col-10 display-4 text-left">Administración de usuarios</h3>
+            <img class="col text-right" src="../imgs/header.gif" alt="logo" width="100" height="80" >
+        </div>
         <br><br><br><br>
         
         <form action="" method="POST">
@@ -18,6 +21,7 @@
                 <input class="shadow-none" type="search" placeholder="nombre de usuario" required></input>
                 <button class="btn btn-primary" type="submit">Buscar</button>
             </div>
+            <br><br>
         </form>
         <div>
             <div class="table-responsive">
@@ -53,6 +57,10 @@
             Editar</button>
             <button style="margin-left:10px; margin-right:10px;" class="btn btn-primary bg-danger border rounded border-dark" type="button" id="btnEliminar" onclick="confirmarEliminar()" >Elimninar</button>
         </div>
+        <br><br><br><br><br>
+            <form action="./login.php" method="get">
+                    <button class="btn btn-secondary" type=submit>Salir</button>    
+            </form> 
 <!-----LOS MODALES--->
 <!---Agregar-->
 <div class="modal fade" id="modalAgregar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -156,7 +164,15 @@
 	</div>
 </div>
 
-<!---Eliminar-->
+<!--ELIMINAR-->
+<script>
+function confirmarEliminar() {
+  var result = confirm("¿Desea eliminar este elemento?");
+  if (result) {
+    //Aquí va el eliminar
+  }
+}
+</script>
 
 <!---TERMINAN MODALES---->
 
@@ -171,26 +187,12 @@
 
 
 
-<!--- 
-CONFIRMAR ELIMINACIÓN
-
-
-PASAR VALORES AL MODAL
+<!---PASAR VALORES AL MODAL
 $(document).on("click", ".open-Modal", function () {
 var myDNI = $(this).data('id');
 $(".modal-body #DNI").val( myDNI );
 });
 -->
-
-<script>
-function confirmarEliminar() {
-  var result = confirm("¿Desea eliminar este elemento?");
-  if (result) {
-    //Aquí va el eliminar
-  }
-}
-</script>
-
 
 
 
