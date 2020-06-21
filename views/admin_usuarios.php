@@ -49,9 +49,9 @@
         <div class="btn-group float-right" role="group">
             <button style="margin-left:10px; margin-right:10px;" class="btn btn-primary border rounded border-dark" type="button" id="btnAgregar" data-toggle="modal" data-target="#modalAgregar">
             Agregar</button>
-            <button style="margin-left:10px; margin-right:10px;" disabled class="btn btn-primary bg-success border rounded border-dark" type="button" id="btnEditar" data-toggle="modal" data-target="#modalEditar">
+            <button style="margin-left:10px; margin-right:10px;" class="btn btn-primary bg-success border rounded border-dark" type="button" id="btnEditar" data-toggle="modal" data-target="#modalEditar">
             Editar</button>
-            <button style="margin-left:10px; margin-right:10px;" disabled class="btn btn-primary bg-danger border rounded border-dark" type="button" id="btnEliminar" onclick="confirmarEliminar()" >Elimninar</button>
+            <button style="margin-left:10px; margin-right:10px;" class="btn btn-primary bg-danger border rounded border-dark" type="button" id="btnEliminar" onclick="confirmarEliminar()" >Elimninar</button>
         </div>
 <!-----LOS MODALES--->
 <!---Agregar-->
@@ -173,28 +173,23 @@
 
 <!--- 
 CONFIRMAR ELIMINACIÓN
-script>
-function myFunction() {
-  var txt;
-  var r = confirm("Press a button!");
-  if (r == true) {
-    txt = "You pressed OK!";
-  } else {
-    txt = "You pressed Cancel!";
-  }
-  document.getElementById("demo").innerHTML = txt;
-}
-</script>
+
 
 PASAR VALORES AL MODAL
 $(document).on("click", ".open-Modal", function () {
 var myDNI = $(this).data('id');
 $(".modal-body #DNI").val( myDNI );
 });
+-->
 
-->
-
-
+<script>
+function confirmarEliminar() {
+  var result = confirm("¿Desea eliminar este elemento?");
+  if (result) {
+    //Aquí va el eliminar
+  }
+}
+</script>
 
 
 
