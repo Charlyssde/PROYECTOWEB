@@ -10,16 +10,27 @@
     <body style="margin-left:35px; margin-right:20px;">
         <h3 class="text-center">Mis actividades</h3>
         <br><br><br>
-        <div class=button-group role=group>
-            <button style=margin:15px; class="btn btn-primary"  type="button">Nueva actividad</button>
-            <button style=margin:15px; class="btn btn-dark" type="button">Ver actividad</button>
-            <button style=margin:15px; class="btn btn-success" type="button">Editar actividad</button>
-            <button style=margin:15px; class="btn btn-danger" type="button">Eliminar actividad</button>
+        <div class=row>
+            <div class=col-10>
+                <div class=button-group role=group>
+                    <button style=margin:15px; class="btn btn-primary"  type="button" data-toggle="modal" data-target="#modalAgregarAct">Nueva actividad</button>
+                    <button style=margin:15px; class="btn btn-dark" type="button" data-toggle="modal" data-target="#modalVerAct">Ver actividad</button>
+                    <button style=margin:15px; class="btn btn-success" type="button" data-toggle="modal" data-target="#modalEditarAct">Editar actividad</button>
+                    <button style=margin:15px; class="btn btn-danger" type="button" onclick="window.location='./login.php';">Eliminar actividad</button>
+                </div>
+            </div>
+            <div class=col-2>
+                <form action="./login.php" method="get">
+                    <button class="btn btn-secondary" type=submit onclick=cerrarSesion()>Salir</button>    
+                </form>   
+            </div>
         </div>
+
         <br><br>
         <div class="row">
             <div class="col-6 text-center">
                 <h3>ACTIVIDADES PENDIENTES</h3>
+
             </div>
             <div class="col-6 text-center">
                 <h3>ACTIVIDADES FINALIZADAS</h3>
@@ -28,6 +39,105 @@
 
 
 
+<!-----LOS MODALES--->
+<!---Agregar-->
+<div class="modal fade" id="modalAgregarAct" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Registrar una nueva actividad</h4>
+				<button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				
+			</div>
+			<div class="modal-body">
+                <form action="" method="POST">
+				    <div class=row>
+                        <div class=col>
+                            <div class="form-group">
+                                <label for="nombre">Nombre de la actividad:</label>
+                                <input type="text" class="mr-sm-2 " placeholder="nombre" id="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcion">Descripción de la actividad:</label>
+                                <textarea type="text" class="mr-sm-2 " placeholder="" id="descripcion" required></textarea>
+                            </div>
+                            <div class="btn-group float-right" role="group">
+                                <button style="margin-left:10px; margin-right:15px;" class="btn btn-primary border rounded border-dark" type="submit" id="btnGuardarNuevo">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!---Editar-->
+<div class="modal fade" id="modalEditarAct" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Editar actividad</h4>
+				<button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				
+			</div>
+			<div class="modal-body">
+                <form action="" method="POST">
+				    <div class=row>
+                        <div class=col>
+                            <div class="form-group">
+                                <label for="nombre">Nombre de la actividad:</label>
+                                <input type="text" class="mr-sm-2 " placeholder="nombre" id="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcion">Descripción de la actividad:</label>
+                                <textarea type="text" class="mr-sm-2 " placeholder="" id="descripcion" required></textarea>
+                            </div>
+                            <div class="btn-group float-right" role="group">
+                                <button style="margin-left:10px; margin-right:15px;" class="btn btn-primary border rounded border-dark" type="submit" id="btnGuardarNuevo">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!---Ver-->
+<div class="modal fade" id="modalVerAct" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Actividad detallada</h4>
+				<button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				
+			</div>
+			<div class="modal-body">
+                <form action="" method="POST">
+				    <div class=row>
+                        <div class=col>
+                            <div class="form-group">
+                                <label for="nombre">Nombre de la actividad:</label>
+                                <input disabled type="text" class="mr-sm-2 " placeholder="nombre" id="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcion">Descripción de la actividad:</label>
+                                <textarea disabled type="text" class="mr-sm-2 " placeholder="" id="descripcion" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+			</div>
+		</div>
+	</div>
+</div>
 
 
 
@@ -38,9 +148,15 @@
 
 
 
-
-
-
+<!--Confirmar eliminar-->
+<script>
+function confirmarEliminar() {
+  var result = confirm("¿Desea eliminar este elemento?");
+  if (result) {
+    //Aquí va el eliminar
+  }
+}
+</script>
 
 
 
