@@ -33,6 +33,8 @@
                             <th>Correo</th>
                             <th>Rol</th>
                             <th>N° Acts</th>
+                            <th>Acciones</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -42,6 +44,10 @@
                             <td>texcharly9@gmail.com</td>
                             <td>INTEGRANTE</td>
                             <td>231</td>
+                            <td>
+						        <a class="link_edit" href="editar_usuario.php?id=<?php echo $data["idusuario"]; ?>">Editar</a>
+						        <a class="link_delete" href="eliminar_confirmar_usuario.php?id=<?php echo $data["idusuario"]; ?>">Eliminar</a>
+					        </td>
                         </tr>
                     </tbody>
                 </table>
@@ -53,10 +59,7 @@
         <div class="btn-group float-right" role="group">
             <button style="margin-left:10px; margin-right:10px;" class="btn btn-primary border rounded border-dark" type="button" id="btnAgregar" data-toggle="modal" data-target="#modalAgregar">
             Agregar</button>
-            <button style="margin-left:10px; margin-right:10px;" class="btn btn-primary bg-success border rounded border-dark" type="button" id="btnEditar" data-toggle="modal" data-target="#modalEditar">
-            Editar</button>
-            <button style="margin-left:10px; margin-right:10px;" class="btn btn-primary bg-danger border rounded border-dark" type="button" id="btnEliminar" onclick="confirmarEliminar()" >Elimninar</button>
-        </div>
+           </div>
         <br><br><br><br><br>
             <form action="./login.php" method="get">
                     <button class="btn btn-secondary" type=submit>Salir</button>    
@@ -113,56 +116,6 @@
 	</div>
 </div>
 
-<!---Editar-->
-<div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-            <h4 class="modal-title" id="myModalLabel">Editar nuevo usuario</h4>
-				<button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				
-			</div>
-			<div class="modal-body">
-                <form action="" method="POST">
-				    <div class=row>
-                        <div class=col-6>
-                            <div class="form-group">
-                                <label for="nombre">Nombre completo:</label>
-                                <input type="text" class="mr-sm-2 " placeholder="nombre + apellidos" id="nombre" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="correo">Correo:</label>
-                                <input type="email" class="mr-sm-2 " placeholder="correo electrónico" id="correo" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="roles" required>Rol:</label>
-                                <select name="roles" id="roles">
-                                    <option value="integrante">INTEGRANTE</option>
-                                    <option value="admin">ADMINISTRADOR</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class=col-6> 
-                            <div class="form-group">
-                                <label for="username">Nombre de usuario:</label>
-                                <input type="text" class="mr-sm-2 " placeholder="nombre de usuario" id="username" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Contraseña:</label>
-                                <input type="password" class="mr-sm-2 " placeholder="contraseña" id="password" required>
-                            </div>
-                            <div class="btn-group float-right" role="group">
-                                <button style="margin-left:10px; margin-right:15px;" class="btn btn-primary border rounded border-dark" type="submit" id="btnGuardarNuevo">Guardar</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-			</div>
-		</div>
-	</div>
-</div>
 
 <!--ELIMINAR-->
 <script>

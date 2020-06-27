@@ -19,7 +19,9 @@
                 <div class=button-group role=group>
                     <button style=margin:15px; class="btn btn-primary"  type="button" data-toggle="modal" data-target="#modalAgregarAct">Nueva actividad</button>
                     <button style=margin:15px; class="btn btn-dark" type="button" data-toggle="modal" data-target="#modalVerAct">Ver actividad</button>
-                    <button style=margin:15px; class="btn btn-success" type="button" data-toggle="modal" data-target="#modalEditarAct">Editar actividad</button>
+                    <a href="some.php">
+                    <button disabled style=margin:15px; class="btn btn-success" type="button" id=btnEditarAct>Editar actividad</button>
+                    </a>
                     <button style=margin:15px; class="btn btn-danger" type="button" onclick="confirmarEliminar();">Eliminar actividad</button>
                 </div>
             </div>
@@ -36,7 +38,7 @@
                 <h3 style=color:blue;>ACTIVIDADES PENDIENTES</h3>
                 <br>
                 <ul class="list-group text-left">
-                    <li class="list-group-item-action list-group-item list-group-item-primary">TAREA 1</li>
+                    <li class="list-group-item-action list-group-item list-group-item-primary" onclick=habilita();>TAREA 1</li>
                     <li class="list-group-item-action list-group-item list-group-item-primary">TAREA 2</li>
                     <li class="list-group-item-action list-group-item list-group-item-primary">TAREA X</li>
                     <li class="list-group-item-action list-group-item list-group-item-primary">TAREA Y</li>
@@ -81,50 +83,6 @@
                                 <textarea type="text" class="mr-sm-2 " placeholder="" id="descripcion" required></textarea>
                             </div>
                             <div class="btn-group float-right" role="group">
-                                <button style="margin-left:10px; margin-right:15px;" class="btn btn-primary border rounded border-dark" type="submit" id="btnGuardarNuevo">Guardar</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!---Editar-->
-<div class="modal fade" id="modalEditarAct" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-            <h4 class="modal-title" id="myModalLabel">Editar actividad</h4>
-				<button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				
-			</div>
-			<div class="modal-body">
-                <form action="" method="POST">
-				    <div class=row>
-                        <div class=col>
-                            <div class="form-group">
-                                <label for="nombre">Nombre de la actividad:</label>
-                                <input type="text" class="mr-sm-2 " placeholder="nombre" id="nombre" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="descripcion">Descripción de la actividad:</label>
-                                <textarea type="text" class="mr-sm-2 " placeholder="" id="descripcion" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="rdFinish" value="terminada" checked>
-                                    <label class="form-check-label" for="rdFinish">Terminada</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="rdPendiente" value="pendiente">
-                                    <label class="form-check-label" for="rdPendiente">Pendiente</label>
-                                </div>
-                            </div>
-                            <div class=float-right>
                                 <button style="margin-left:10px; margin-right:15px;" class="btn btn-primary border rounded border-dark" type="submit" id="btnGuardarNuevo">Guardar</button>
                             </div>
                         </div>
@@ -192,6 +150,11 @@ function confirmarEliminar() {
   if (result) {
     //Aquí va el eliminar
   }
+}
+
+function habilita(){
+    document.getElementById("btnEditarAct").disabled = false;
+    
 }
 </script>
 

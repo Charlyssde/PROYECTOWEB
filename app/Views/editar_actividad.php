@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar actividad</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class=row>
+            <h3 class="col-10 display-4">Editar actividad</h3>
+            <img class="col text-right" src="../imgs/header.gif" alt="logo" width="100" height="80" >
+    </div>
+        <br><br><br><br>
+    
+            <form action="" method="PUT">
+				    <div class="row text-center">
+                        <div class=col >
+                            <div class="form-group">
+                                <label for="nombre">Nombre de la actividad:</label>
+                                <input type="text" class="mr-sm-2 " placeholder="nombre" id="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcion">Descripción de la actividad:</label>
+                                <textarea type="text" class="mr-sm-2 " placeholder="" id="descripcion" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="rdFinish" value="terminada" checked>
+                                    <label class="form-check-label" for="rdFinish">Terminada</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="rdPendiente" value="pendiente">
+                                    <label class="form-check-label" for="rdPendiente">Pendiente</label>
+                                </div>
+                            </div>
+                            <div>
+                                <button style="margin-left:10px; margin-right:15px;" class="btn btn-primary border rounded border-dark" type="submit" id="btnGuardarNuevo">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+</body>
+</html>

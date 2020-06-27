@@ -11,7 +11,7 @@
         <div class="row d-block">
             <div class="col-12 text-center">
                 <br><br>
-                <img src="../imgs/header.gif"  height="100" alt="some photo">
+                <img src="./imgs/header.gif"  height="100" alt="some photo">
             </div>
             <div class="col-12 text-center">
                 <br><br><br>
