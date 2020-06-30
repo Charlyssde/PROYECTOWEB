@@ -19,6 +19,7 @@ require_once SYSTEMPATH . 'Config/Services.php';
  */
 class Services extends CoreServices
 {
+	
 
 	//    public static function example($getShared = true)
 	//    {

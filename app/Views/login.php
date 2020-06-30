@@ -1,43 +1,30 @@
-<!DOCTYPE html>
-<html>
 
-    <head>
-        <meta charset="UTF-8">
-        <title>LogIn</title>
-        <!-- CSS only -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  </head>
-    <body>
-        <div class="row d-block">
-            <div class="col-12 text-center">
-                <br><br>
-                <img src="./imgs/header.gif"  height="100" alt="some photo">
-            </div>
-            <div class="col-12 text-center">
-                <br><br><br>
-                <h2 style=text-decoration:underline;>Inicio de sesión</h2>
-                <br>
-            </div>
-            <div class="d-flex justify-content-center">
-                <form action="" method="POST">
-                    <div class="form-group">
-                        <label for="username">Nombre de usuario:</label>
-                        <input type="text" class="mr-sm-2 " placeholder="nombre de usuario" id="username" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Contraseña:</label>
-                        <input type="password" class="mr-sm-2" placeholder="contraseña" id="pwd" required>
-                    </div>
-                    <div class=text-center>
-                        <button type="submit" class="btn btn-success">Ingresar</button>
-                    </div>
-                </form>
-            </div>
+<div class="col-12 text-center">
+    <br><br><br>
+    <h2 style=text-decoration:underline;>Inicio de sesión</h2>
+    <br>
+</div>
+<div class="d-flex justify-content-center">
+    <form class="" action="/" method="post">
+        <div class="form-group">
+            <label for="nombreUsuario">Nombre de usuario:</label>
+            <input type="text" class="mr-sm-2 " placeholder="Nombre de usuario" id="nombreUsuario" name="nombreUsuario" value="<?= set_value('nombreUsuario') ?>">
         </div>
-<!-- JS, Popper.js, and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  
-</body>
-</html>
+        <div class="form-group">
+            <label for="password">Contraseña:</label>
+            <input type="password" class="mr-sm-2" placeholder="Contraseña" id="password" name="password" value="<?= set_value('password') ?>">
+        </div>
+        <?php if (isset($validation)): ?>
+            <div class="col-12">
+                <div class="alert alert-danger" role="alert">
+                    <?= $validation->listErrors() ?>
+                </div>
+            </div>
+        <?php endif; ?>
+        <div class="btn-group float-right">
+            <button class="btn btn-primary" type="submit" name="submit">Ingresar</button>
+        </div>
+    </form>
+</div>
+
+
