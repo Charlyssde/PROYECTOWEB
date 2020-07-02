@@ -1,4 +1,12 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
 <div class="col-12 text-center">
     <br><br><br>
     <h2 style=text-decoration:underline;>Inicio de sesión</h2>
@@ -28,3 +36,6 @@
 </div>
 
 
+
+</body>
+</html>

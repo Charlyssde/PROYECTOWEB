@@ -1,18 +1,22 @@
-        <br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <br><br>
         <div class=row>
             <h3 class="col-10 display-4 text-left">Mis actividades</h3>
-            <img class="col text-right" src="../imgs/header.gif" alt="logo" width="100" height="80" >
+            <img class="col text-right" src="./imgs/logo.png" alt="logo" width="100" height="100" >
         </div>
         <br><br><br>
         <div class=row>
             <div class=col-10>
                 <div class=button-group role=group>
                     <button style=margin:15px; class="btn btn-primary"  type="button" data-toggle="modal" data-target="#modalAgregarAct">Nueva actividad</button>
-                    <button style=margin:15px; class="btn btn-dark" type="button" data-toggle="modal" data-target="#modalVerAct">Ver actividad</button>
-                    <a href="some.php">
-                    <button disabled style=margin:15px; class="btn btn-success" type="button" id=btnEditarAct>Editar actividad</button>
-                    </a>
-                    <button style=margin:15px; class="btn btn-danger" type="button" onclick="confirmarEliminar();">Eliminar actividad</button>
                 </div>
             </div>
             <div class=col-2>
@@ -23,26 +27,37 @@
         </div>
 
         <br><br>
-        <div class="row">
+        <div class="row" style=margin:12px;>
             <div class="col-6 text-center">
                 <h3 style=color:blue;>ACTIVIDADES PENDIENTES</h3>
                 <br>
-                <ul class="list-group text-left">
-                    <li class="list-group-item-action list-group-item list-group-item-primary" onclick=habilita();>TAREA 1</li>
-                    <li class="list-group-item-action list-group-item list-group-item-primary">TAREA 2</li>
-                    <li class="list-group-item-action list-group-item list-group-item-primary">TAREA X</li>
-                    <li class="list-group-item-action list-group-item list-group-item-primary">TAREA Y</li>
-                </ul>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th> Actividad</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablePend">
+                        
+                    </tbody>
+                </table>
+                
             </div>
             <div class="col-6 text-center">
                 <h3 style=color:green;>ACTIVIDADES FINALIZADAS</h3>
                 <br>
-                <ul class="list-group text-left">
-                    <li class="list-group-item-action list-group-item list-group-item-success">TAREA 3</li>
-                    <li class="list-group-item-action list-group-item list-group-item-success">TAREA 4</li>
-                    <li class="list-group-item-action list-group-item list-group-item-success">TAREA A</li>
-                    <li class="list-group-item-action list-group-item list-group-item-success">TAREA B</li>
-                </ul>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th> Actividad</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableTerm">
+                        
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -125,34 +140,30 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-<!--Confirmar eliminar-->
 <script>
-function confirmarEliminar() {
-  var result = confirm("¿Desea eliminar este elemento?");
-  if (result) {
-    //Aquí va el eliminar
-  }
-}
+    function eliminar(id) {
+    let getUrl = window.location;
+    let baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+    let respuesta = confirm("¿Está seguro de eliminar el registro seleccionado?");
+        if (respuesta) {
+            //AQUI SE ELIMINA, PERO NO SÉ COMO XD
+        }
 
-function habilita(){
-    document.getElementById("btnEditarAct").disabled = false;
-    
-}
+    }
 </script>
 
 
 
 
 
+
+
+
+
 <!-- JS, Popper.js, and jQuery -->
+<script src=../Scripts/loadActivities.js></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
